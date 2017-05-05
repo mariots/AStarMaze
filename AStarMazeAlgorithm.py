@@ -10,7 +10,7 @@ def AStarSearch(Maze):
         path = open[0]
         destination = path[len(path) - 1]
         if Maze[destination[0]][destination[1]] == 'c':
-            return path // found the cheese
+            return path  # Found the cheese
         # throw away the path we just tested     This was in the wrong place
         # previously
         open = open[1:]
