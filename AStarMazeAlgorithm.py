@@ -10,13 +10,15 @@ def AStarSearch(Maze):
         path = open[0]
         destination = path[len(path) - 1]
         if Maze[destination[0]][destination[1]] == 'c':
-            return path  # found the cheese
-        open = open[1:]  # throw away the path we just tested
+            return path // found the cheese
+        # throw away the path we just tested     This was in the wrong place
+        # previously
+        open = open[1:]
         # insert children of path into open list. Each child is a path.
         for cell in adjacentCells(destination, Maze):
             if cell not in closed:
+                # This line did not change the open list p
                 open = insert(path + [cell], open, cheesePosition(Maze))
-        open = open[1:]  # throw away the path we just tested
         closed = closed + [destination]  # and add its last cell to closed list
     return None
 
